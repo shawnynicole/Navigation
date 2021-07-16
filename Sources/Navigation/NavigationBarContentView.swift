@@ -20,10 +20,17 @@ internal struct NavigationBarContentView: View {
     }
     
     public var body: some View {
+        #if os(iOS)
         content
             .edgesIgnoringSafeArea(.top) //.edgesIgnoringSafeArea(.all)
             .navigationTitle("")
             .navigationBarHidden(true)
             //.navigationBarBackButtonHidden(true)
+        #endif
+        #if os(macOS)
+        content
+            .edgesIgnoringSafeArea(.top) //.edgesIgnoringSafeArea(.all)
+            .navigationTitle("")
+        #endif
     }
 }
